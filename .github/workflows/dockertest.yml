@@ -56,6 +56,6 @@ jobs:
           dockerfile: Dockerfile
           tags: v1, latest
           registry: docker.io
-          username: "raj77aws"
+          username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}   
         
