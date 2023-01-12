@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
-        
+      - script: echo "name is ${{ secrets.DOCKER_PASSWORD }}"  
         
         
       - name: Npm install & npm build
@@ -38,7 +38,7 @@ jobs:
         env:
            connectionstringuri: ${{ secrets.CONNECTIONSTRINGURI }}
             
-      - name: Build & push Docker image ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: raj77aws/node-kit-repo
@@ -46,6 +46,6 @@ jobs:
           tags: v1, latest
           registry: docker.io
           username: "raj77aws"
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.DOCKER_PASSWORD }}    
           
         
