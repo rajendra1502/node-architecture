@@ -47,6 +47,7 @@ jobs:
 
   deploy-app:
     runs-on: ubuntu-latest
+    environment: Node-Architecture-env-variables
     needs: provision-ec2
     steps:
       - name: Checkout
