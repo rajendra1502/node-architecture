@@ -23,8 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - run: echo $DOCKER_PASSWORD
-
+      
       - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
@@ -36,10 +35,11 @@ jobs:
         run:  |
             npm install
             npm run build
-            echo $DOCKER_PASSWORD >> >> secrets.txt
         
         env:
            connectionstringuri: ${{ secrets.CONNECTIONSTRINGURI }}
+        run: |
+           echo $CONNECTIONSTRINGURI    
             
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
@@ -50,5 +50,6 @@ jobs:
           registry: docker.io
           username: "raj77aws"
           password: ${{ secrets.DOCKER_PASSWORD }}    
-          
+        run: |
+           echo $DOCKER_PASSWORD   
         
