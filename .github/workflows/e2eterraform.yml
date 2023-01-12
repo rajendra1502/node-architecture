@@ -132,8 +132,7 @@ jobs:
              docker pull raj77aws/node-kit-repo:v2 &&
              docker images &&
              docker run  -d -p 80:3000 raj77aws/node-kit-repo:v2'
-        env:
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        
         
       
       # This is not working
