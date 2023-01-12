@@ -17,6 +17,7 @@ env:
   AWS_REGION: us-east-1
   
 jobs:
+  environment: Node-Architecture-env-variables
   deploy-infra:
     runs-on: ubuntu-latest
     outputs:
