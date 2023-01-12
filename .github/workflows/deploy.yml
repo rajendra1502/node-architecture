@@ -46,7 +46,7 @@ jobs:
           -out=PLAN
         working-directory: ./terraform
       - name: Terraform Apply
-        id: apply --auto-approve
+        id: apply auto-approve
         run: terraform apply PLAN
         working-directory: ./terraform
       - name: Set output
