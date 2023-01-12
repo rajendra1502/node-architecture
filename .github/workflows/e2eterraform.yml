@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  environment: Node-Architecture-env-variables
+    environment: Node-Architecture-env-variables
   provision-ec2:
     runs-on: ubuntu-latest
     outputs:
