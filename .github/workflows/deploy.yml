@@ -15,7 +15,7 @@ env:
   #PRIVATE_SSH_KEY: ${{ secrets.AWS_SSH_KEY_PRIVATE }}
   #PUBLIC_SSH_KEY: ${{ secrets.AWS_SSH_KEY_PUBLIC }} added on git env
   AWS_REGION: us-east-1
-
+  print(TF_VAR_AWS_ACCESS_KEY_ID)
 jobs:
   deploy-infra:
     runs-on: ubuntu-latest
