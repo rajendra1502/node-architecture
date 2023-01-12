@@ -43,7 +43,9 @@ jobs:
         env:
           CONNECTIONSTRINGURI: ${{ secrets.CONNECTIONSTRINGURI }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          MY_NAME: ${{ secrets.MY_NAME }}
         run: |
+          echo $MY_NAME
           echo $CONNECTIONSTRINGURI 
           echo $DOCKER_PASSWORD  
             
