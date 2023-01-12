@@ -74,7 +74,7 @@ jobs:
       - name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: raj77aws/newdocker
+          image: raj77aws/node-kit-repo
           dockerfile: Dockerfile
           tags: v2, latest
           registry: docker.io
@@ -127,9 +127,9 @@ jobs:
 
       - name: PUll Image and Run Docker
         run: ssh ec2 'echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username raj77aws --password-stdin &&
-             docker pull raj77aws/newdocker:v2 &&
+             docker pull raj77aws/node-kit-repo:v2 &&
              docker images &&
-             docker run  -d -p 80:3000 raj77aws/newdocker:v2'
+             docker run  -d -p 80:3000 raj77aws/node-kit-repo:v2'
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         
