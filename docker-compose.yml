@@ -1,0 +1,18 @@
+version: "3"
+services:
+       node-kit:
+           container_name: node-kit
+           image: node-kit
+           restart: always
+           build: .
+           ports:
+             - "4001:4001"
+           links:
+             - mongo
+       mongo:
+             container_name: mongo
+             image: mongo
+             volumes:
+               - ./data:/data/db
+             ports:
+               - '27018:27017'

@@ -1,0 +1,29 @@
+{
+  "name": "node-architecture",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Node Architecture",
+  "main": "server.js",
+  "scripts": {
+    "start:dev": "NODE_ENV=dev nodemon index.js",
+    "start:prod": "NODE_ENV=prod nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "author": "Rajendra",
+  "license": "ISC",
+  "dependencies": {
+    "@sentry/node": "^7.28.1",
+    "@sentry/tracing": "^7.28.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "nodemon": "^2.0.20"
+  }
+}
