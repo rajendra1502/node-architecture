@@ -17,9 +17,9 @@ env:
   AWS_REGION: us-east-1
   
 jobs:
-    environment: Node-Architecture-env-variables
   deploy-infra:
     runs-on: ubuntu-latest
+    environment: Node-Architecture-env-variables
     outputs:
       SERVER_PUBLIC_IP: ${{ steps.set-ip.outputs.instance_public_ip}}
     steps:

@@ -9,9 +9,9 @@ on:
     branches: [ "main" ]
 
 jobs:
-    environment: Node-Architecture-env-variables
   provision-ec2:
     runs-on: ubuntu-latest
+    environment: Node-Architecture-env-variables
     outputs:
       SERVER_PUBLIC_IP: ${{ steps.set-ip.outputs.instance_public_ip}}
     steps:
