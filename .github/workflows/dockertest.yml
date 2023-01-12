@@ -23,11 +23,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - script: echo "name is ${{ secrets.DOCKER_PASSWORD }}"
+      
       - uses: actions/checkout@v3
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
-      - script: echo "name is ${{ secrets.DOCKER_PASSWORD }}"  
+        
         
         
       - name: Npm install & npm build
