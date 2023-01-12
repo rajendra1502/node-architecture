@@ -19,7 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-  
+    environment: Node-Architecture-env-variables
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -39,7 +39,7 @@ jobs:
         env:
            connectionstringuri: ${{ secrets.CONNECTIONSTRINGURI }}
         
-      - name: Set up secret file
+      - name: Get env secret values
         env:
           CONNECTIONSTRINGURI: ${{ secrets.CONNECTIONSTRINGURI }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
