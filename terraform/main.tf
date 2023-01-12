@@ -17,16 +17,16 @@ provider "aws" {
 resource "aws_instance" "servernode" {
   ami                    = "ami-0b5eea76982371e91"
   instance_type          = "t2.micro"
-  #key_name               = aws_key_pair.key_access.key_name
-  key_name               = "vpcpublickey"
+  key_name               = aws_key_pair.key_access.key_name
+  #key_name               = "vpcpublickey"
 
   
    connection {
     type        = "ssh"
     host        = self.public_ip
     user        = "ec2-user"
-    #private_key = tls_private_key.mykey1.private_key_pem
-    private_key = "vpcpublickey"
+    private_key = tls_private_key.mykey1.private_key_pem
+    #private_key = "vpcpublickey"
     timeout     = "4m"
   }
   tags = {
