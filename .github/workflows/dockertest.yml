@@ -38,7 +38,7 @@ jobs:
         env:
            connectionstringuri: ${{ secrets.CONNECTIONSTRINGURI }}
             
-      - name: Build & push Docker image
+      - name: Build & push Docker image ${{ secrets.DOCKER_PASSWORD }}
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: raj77aws/node-kit-repo
