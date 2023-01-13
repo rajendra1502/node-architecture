@@ -14,6 +14,7 @@ export const connect = async () => {
       return 1
     })
     .catch((error) => {
+      console.log(`...Application running on env : ${process.env.NODE_ENV} `);
       console.log("database connection failed. exiting now...", MONGO_URI);
       console.error('...Mongo Error...', error);
       process.exit(1);
