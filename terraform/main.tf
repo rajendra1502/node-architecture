@@ -59,9 +59,10 @@ resource "aws_security_group" "alb_security_group"{
     name="alb_security_group"
   }
 }
-resource "aws_eip" "demo-eip" {
-  instance = aws_instance.servernode.id
-  vpc      = true
+
+resource "aws_eip_association" "demo-eip-association" {
+  instance_id   = aws_instance.servernode.id
+  allocation_id = aws_eip.demo-eip.id
 }
 
 ########################## Define Key ###########################
