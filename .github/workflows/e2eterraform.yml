@@ -132,7 +132,7 @@ jobs:
              docker pull raj77aws/node-kit-repo:v2 &&
              docker images &&
              docker run -d -p 27018:27017 mongo &&
-             docker run  -d -p 80:4001 raj77aws/node-kit-repo:v2
+             docker run  -d -p 80:4001 raj77aws/node-kit-repo:v2'
         
         
       
