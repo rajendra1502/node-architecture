@@ -134,7 +134,7 @@ jobs:
       - name: PUll Image and Run Docker
         run: ssh ec2 'echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username raj77aws --password-stdin &&
              docker pull raj77aws/node-kit-repo:v2 &&
-             curl https://github.com/rajendra1502/node-architecture/blob/main/docker-compose.yml &&
+             wget -c https://github.com/rajendra1502/node-architecture/blob/main/docker-compose.yml &&
              docker-compose up'        
         
       
