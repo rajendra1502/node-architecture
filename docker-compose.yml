@@ -2,9 +2,8 @@ version: "3"
 services:
        node-kit:
            container_name: node-kit
-           image: node-kit
+           image: raj77aws/node-kit-repo:v2
            restart: always
-           build: .
            ports:
              - "4001:4001"
            links:
