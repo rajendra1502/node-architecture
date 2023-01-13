@@ -5,8 +5,7 @@ resource "aws_instance" "servernode" {
   ami                    = "ami-0b5eea76982371e91"
   instance_type          = "t2.micro"
   key_name               = "firstHtml"
-  public_ip              = "107.22.22.63"
-  #key_name              = "vpcpublickey"
+  #key_name               = "vpcpublickey"
 
   
    connection {
@@ -61,6 +60,10 @@ resource "aws_security_group" "alb_security_group"{
   }
 }
 
+resource "aws_eip_association" "demo-eip-association" {
+  instance_id   = aws_instance.servernode.id
+  allocation_id = aws_eip.demo-eip
+}
 
 ########################## Define Key ###########################
 
