@@ -5,7 +5,8 @@ resource "aws_instance" "servernode" {
   ami                    = "ami-0b5eea76982371e91"
   instance_type          = "t2.micro"
   key_name               = "firstHtml"
-  #key_name               = "vpcpublickey"
+  public_ip              = "demo-eip"
+  #key_name              = "vpcpublickey"
 
   
    connection {
@@ -14,7 +15,6 @@ resource "aws_instance" "servernode" {
     user        = "ec2-user"
     private_key = tls_private_key.mykey1.private_key_pem
     #private_key = "vpcpublickey"
-    public_ip    = "demo-eip"
     timeout     = "4m"
   }
   tags = {
