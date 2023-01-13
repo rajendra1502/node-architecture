@@ -31,6 +31,23 @@ resource "aws_security_group" "alb_security_group"{
     description="ssh access"
 
 }
+  ingress {
+    from_port=27017
+    to_port=27017
+    protocol="tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description="mongo access"
+
+}
+  ingress {
+    from_port=4001
+    to_port=4001
+    protocol="tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    description="node access"
+
+}
+
   egress {
     from_port=0
     to_port=0
@@ -41,6 +58,10 @@ resource "aws_security_group" "alb_security_group"{
   tags={
     name="alb_security_group"
   }
+}
+resource "aws_eip" "demo-eip" {
+  instance = aws_instance.servernode.id
+  vpc      = true
 }
 
 ########################## Define Key ###########################

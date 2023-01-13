@@ -119,11 +119,7 @@ jobs:
         run: ssh ec2 'sudo yum update -y &&
              sudo yum install docker -y &&
              sudo service docker start &&
-             sudo usermod -a -G docker ec2-user &&
-             sudo yum install python3-pip -y &&
-             sudo pip3 install docker-compose &&
-             sudo systemctl enable docker.service &&
-             sudo systemctl start docker.service &&
+             sudo usermod -a -G docker ec2-user
              exit'
 
       - name: Sleep for 30 seconds
@@ -134,8 +130,9 @@ jobs:
       - name: PUll Image and Run Docker
         run: ssh ec2 'echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username raj77aws --password-stdin &&
              docker pull raj77aws/node-kit-repo:v2 &&
-             wget -c https://github.com/rajendra1502/node-architecture/blob/main/docker-compose.yml &&
-             docker-compose up'        
+             docker images &&
+             docker run -d -p 27017:27017 mongo &&
+             docker run  -d -p 4001:4001 raj77aws/node-kit-repo:v2'        
         
       
       # This is not working
