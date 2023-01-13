@@ -62,7 +62,7 @@ resource "aws_security_group" "alb_security_group"{
 
 resource "aws_eip_association" "demo-eip-association" {
   instance_id   = aws_instance.servernode.id
-  allocation_id = aws_eip.demo-eip.id
+  allocation_id = "demo-eip"
 }
 
 ########################## Define Key ###########################
