@@ -14,6 +14,7 @@ resource "aws_instance" "servernode" {
     user        = "ec2-user"
     private_key = tls_private_key.mykey1.private_key_pem
     #private_key = "vpcpublickey"
+    public_ip    = "demo-eip"
     timeout     = "4m"
   }
   tags = {
@@ -60,10 +61,6 @@ resource "aws_security_group" "alb_security_group"{
   }
 }
 
-resource "aws_eip_association" "demo-eip-association" {
-  instance_id   = aws_instance.servernode.id
-  allocation_id = "demo-eip"
-}
 
 ########################## Define Key ###########################
 
