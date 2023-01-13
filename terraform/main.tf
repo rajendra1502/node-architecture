@@ -5,7 +5,7 @@ resource "aws_instance" "servernode" {
   ami                    = "ami-0b5eea76982371e91"
   instance_type          = "t2.micro"
   key_name               = "firstHtml"
-  aws_eip                = "107.22.22.63"
+  public_ip              = "107.22.22.63"
   #key_name              = "vpcpublickey"
 
   
